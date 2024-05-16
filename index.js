@@ -1,0 +1,50 @@
+let libreria = [
+    {
+        Titulo: "Cien Años de Soledad",
+        Autor: "Gabriel García Márquez",
+        Genero: "Realismo Mágico",
+        Idioma: "Español",
+        Formato: "Tapa Dura",
+        ISBN: "978-0307474728",
+        Descripcion: "Una de las obras más importantes de la literatura hispanoamericana.",
+        Estado: "Nuevo",
+        Ubicacion: "Estantería A1",
+        Fecha_publicacion: "1967",
+        Editorial: "Editorial Sudamericana",
+        Paginas: "417",
+        Dimensiones: "15.2 x 3.3 x 22.9 cm",
+        Peso: "680 g"
+    },
+    {
+        Titulo: "Don Quijote de la Mancha",
+        Autor: "Miguel de Cervantes",
+        Genero: "Novela",
+        Idioma: "Español",
+        Formato: "Tapa Blanda",
+        ISBN: "978-8491050293",
+        Descripcion: "La historia de un hidalgo que pierde la cordura por leer demasiadas novelas de caballería.",
+        Estado: "Usado",
+        Ubicacion: "Estantería B2",
+        Fecha_publicacion: "1605",
+        Editorial: "Alianza Editorial",
+        Paginas: "1088",
+        Dimensiones: "13 x 4.4 x 20.1 cm",
+        Peso: "750 g"
+    },
+    {
+        Titulo: "1984",
+        Autor: "George Orwell",
+        Genero: "Distopía",
+        Idioma: "Inglés",
+        Formato: "Tapa Blanda",
+        ISBN: "978-0451524935",
+        Descripcion: "Una novela que presenta una visión aterradora de una sociedad totalitaria.",
+        Estado: "Nuevo",
+        Ubicacion: "Estantería C3",
+        Fecha_publicacion: "1949",
+        Editorial: "Signet Classics",
+        Paginas: "328",
+        Dimensiones: "10.7 x 1.8 x 17.8 cm",
+        Peso: "280 g"
+    }
+]
