@@ -364,13 +364,14 @@ let libro_nuevo= {
     }
 
 //agregar un libro
-/* libreria.push(libro_nuevo)
-console.log(libreria); */
+libreria.push(libro_nuevo)
+
+//console.log(libreria); 
 
 
 //quitar un libro
-/* ibreria.pop()
-console.log(libreria);*/
+//libreria.pop()
+//console.log(libreria);
 
 
 //mostrar los libros
@@ -378,9 +379,110 @@ console.log(libreria);*/
     console.log(`${index +1} titulo : ${libro.Titulo}`);
 })*/
 
+
+//Metodo map
+
+let mostrar_libro = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Editorial: libro.Editorial,
+        Precio: libro.Precio
+    }
+   }
+ );
+ 
+
+
+ let mostrar_libro1 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Editorial: libro.Editorial
+    }
+   }
+ );
+ let mostrar_libro2 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Peso: libro.Peso
+    }
+   }
+ );
+ let mostrar_libro3 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Precio: libro.Precio
+    }
+   }
+ );
+ let mostrar_libro4 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Estado: libro.Estado
+    }
+   }
+ );
+ let mostrar_libro5 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Ubicación: libro.Ubicacion
+    }
+   }
+ );
+ let mostrar_libro6 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Paginas: libro.Paginas
+    }
+   }
+ );
+ let mostrar_libro7 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Dimensiones: libro.Dimensiones
+    }
+   }
+ );
+ let mostrar_libro8 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Descripcion: libro.Descripcion
+    }
+   }
+ );
+
+ let mostrar_libro9 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        ISBN: libro.ISBN
+    }
+   }
+ );
+ let mostrar_libro10 = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Formato: libro.Formato
+    }
+   }
+ );
+/*console.table(mostrar_libro1);
+console.table(mostrar_libro2);
+console.table(mostrar_libro3);
+console.table(mostrar_libro4);
+console.table(mostrar_libro5);
+console.table(mostrar_libro6);
+console.table(mostrar_libro7);
+console.table(mostrar_libro8);
+console.table(mostrar_libro9);
+console.table(mostrar_libro10);
+*/
+
+
+
+//menu
 let continuar= "si"
 while (continuar === "si") {
-    let menu= prompt("que quieres hacer \n1. ver libros disponibles\n2.agregar nuevo libro\n3.borrar un libro \n 3lista de libros");
+    let menu= prompt("que quieres hacer \n1. ver libros disponibles\n2.agregar nuevo libro\n3.borrar un libro \n 4.lista de libros");
     switch (menu) {
         case "1":
             let decision= prompt("deseas ver los demas datos")
@@ -424,41 +526,39 @@ while (continuar === "si") {
                 break;
                 
         case "4":
-                    let decision2= prompt("Que listado quieres ver \n1.Editorial\n2.peso\n3.precio\n4.estado\n5.ubicacion\n6.paginas\n7.dimensiones\n8.descripcion\n9.isbn\n10.formato\n11.fecha")
-                    if (decision2 ===1 || decision2 === "1") {
-                        console.table(Editorial)
-                    }
-                    if (decision2 ===2 || decision2 === "2") {
-                        console.table(PESO)
-                    }
-                    if (decision2 ===3 || decision2 === "3") {
-                        console.table(PRECIO)
-                    }if (decision2 ===4 || decision2 === "4") {
-                        console.table(ESTADO)
-                    }
-                    if (decision2 ===5 || decision2 === "5") {
-                        console.table(UBICACION)
-                    }
-                    if (decision2 ===6 || decision2 === "6") {
-                        console.table(PAGINAS)
-                    }
-                    if (decision2 ===7 || decision2 === "7") {
-                        console.table(DIMENSIONES)
-                    }
-                    if (decision2 ===8 || decision2 === "8") {
-                        console.table(DESCRIPCION)
-                    }
-                    if (decision2 ===9 ||  decision2 === "9") {
-                        console.table(ISBN)
-                    }
-                    if (decision2 ===10 || decision2 === "10") {
-                        console.table(FORMATO)
-                    }if (decision2 ===11 || decision2 === "11") {
-                        console.table(FECHA)
-                    }
-                    break;
+                let decision2= prompt("Que listado quieres ver \n1.Editorial\n2.peso\n3.precio\n4.estado\n5.ubicacion\n6.paginas\n7.dimensiones\n8.descripcion\n9.isbn\n10.formato\n11.fecha")
+                if (decision2 ===1 || decision2 === "1"){
+                    console.table(mostrar_libro1)
+                }
+                if (decision2 ===2 || decision2 === "2"){
+                    console.table(mostrar_libro2)
+                }
+                if (decision2 ===3 || decision2 === "3"){
+                console.table(mostrar_libro3)
+                }if (decision2 ===4 || decision2 === "4"){
+                    console.table(mostrar_libro4)
+                }
+                if (decision2 ===5 || decision2 === "5"){
+                    console.table(mostrar_libro5)
+                }
+                if (decision2 ===6 || decision2 === "6"){
+                    console.table(mostrar_libro6)
+                }
+                if (decision2 ===7 || decision2 === "7"){
+                    console.table(mostrar_libro7)
+                }
+                if (decision2 ===8 || decision2 === "8"){
+                    console.table(mostrar_libro8)
+                }
+                if (decision2 ===9 ||  decision2 === "9"){
+                    console.table(mostrar_libro9)
+                }
+                if (decision2 ===10 || decision2 === "10"){
+                    console.table(mostrar_libro10)
+                }
+                break;
                 default:
-                    break;
+                break;
             }
          continuar= prompt("Deseas continuar")
         }
@@ -467,85 +567,3 @@ while (continuar === "si") {
    
     
 
-//Metodo map
-
-let mostrar_libro = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Autor: libro.Autor,
-        Editorial: libro.Editorial,
-        Precio: libro.Precio
-    }
-   }
- );
- let mostrar_libro1 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Autor: libro.Autor
-    }
-   }
- );
- let mostrar_libro2 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Editorial: libro.Editorial
-    }
-   }
- );
- let mostrar_libro3 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Precio: libro.Precio
-    }
-   }
- );
- let mostrar_libro4 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Autor: libro.Autor,
-        Idioma: libreria.Idioma
-    }
-   }
- );
- let mostrar_libro5 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Descripcion: libro.Descripcion,
-        Paginas: libro.Paginas
-    }
-   }
- );
- let mostrar_libro6 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Formato: libro.Formato,
-        Peso: libro.Peso
-    }
-   }
- );
- let mostrar_libro7 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Genero: libro.Genero,
-        Edicion: libro.Edicion
-    }
-   }
- );
- let mostrar_libro8 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Fecha_publicacion: libro.Fecha_publicacion,
-        Peso: libro.Peso
-    }
-   }
- );
-
- let mostrar_libro9 = libreria.map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Estado: libro.Estado,
-        Dimensiones: libro.Dimensiones
-    }
-   }
- );
-console.table(mostrar_libro);
