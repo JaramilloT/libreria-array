@@ -344,7 +344,6 @@ let libreria = [
         Peso: "300 g"
     }
 ];
-
 let libro_nuevo= {
         Título: "To Kill a Mockingbird",
         Autor: "Harper Lee",
@@ -363,9 +362,10 @@ let libro_nuevo= {
         Peso: "400 g"
     }
 
-//agregar un libro
-libreria.push(libro_nuevo)
 
+
+//agregar un libro
+//libreria.push(libro_nuevo)
 //console.log(libreria); 
 
 
@@ -382,7 +382,7 @@ libreria.push(libro_nuevo)
 
 //Metodo map
 
-let mostrar_libro = libreria.map((libro) =>{
+/*let mostrar_libro = libreria.map((libro) =>{
     return{
         Titulo: libro.Titulo,
         Autor: libro.Autor,
@@ -390,10 +390,44 @@ let mostrar_libro = libreria.map((libro) =>{
         Precio: libro.Precio
     }
    }
+ );*/
+
+
+ //spreed operator
+ let agregar = libreria.map((libros) =>{
+    return{
+        ...libros,
+        descuento: 20,
+    }
+   }
  );
- 
 
 
+
+//Listar los libros por Titulo, Autor, Editorial, Precio y descuento.
+
+
+let listar = libreria.map((libros) =>{
+    return{
+        ...libros,
+        descuento: 20
+    }
+   }
+ )
+. map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Editorial: libro.Editorial,
+        Precio: libro.Precio,
+        descuento: libro.descuento
+    }
+   }
+ );
+
+
+
+//10 libros para mostrar
  let mostrar_libro1 = libreria.map((libro) =>{
     return{
         Titulo: libro.Titulo,
@@ -465,27 +499,15 @@ let mostrar_libro = libreria.map((libro) =>{
     }
    }
  );
-/*console.table(mostrar_libro1);
-console.table(mostrar_libro2);
-console.table(mostrar_libro3);
-console.table(mostrar_libro4);
-console.table(mostrar_libro5);
-console.table(mostrar_libro6);
-console.table(mostrar_libro7);
-console.table(mostrar_libro8);
-console.table(mostrar_libro9);
-console.table(mostrar_libro10);
-*/
-
 
 
 //menu
 let continuar= "si"
 while (continuar === "si") {
-    let menu= prompt("que quieres hacer \n1. ver libros disponibles\n2.agregar nuevo libro\n3.borrar un libro \n 4.lista de libros");
+    let menu= prompt("Que quiere hacer \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros");
     switch (menu) {
         case "1":
-            let decision= prompt("deseas ver los demas datos")
+            let decision= prompt("Deseas ver los demas datos")
             if (decision === "si") {
                 libreria.forEach((libro,index) =>{
                     console.log(`${index } Titulo: ${libro.Titulo} Autor : ${libro.Autor} Genero : ${libro.Genero} Idioma : ${libro.Idioma} formato: ${libro.Formato } isb: ${libro.ISBN} descripcion: ${libro.Descripcion} estado: ${libro.Estado} ubicacion: ${libro.Ubicacion}  fecha de publicacion : ${libro.Fecha_publicacion} editorial : ${libro.Editorial} paginas: ${libro.Paginas} dimensiones: ${libro.Dimensiones} peso: ${libro.Peso}`);
@@ -514,19 +536,19 @@ while (continuar === "si") {
                 peso: prompt("peso")
             }
                 libreria.push(nuevo)
-                console.log("agregado con exito");
+                console.log("Agregado con exito");
                 libreria.forEach((libro,index) =>{
-                console.log(`${index} titulo : ${libro.Titulo}`);
+                console.log(`${index} Titulo : ${libro.Titulo}`);
             })
             break;
         case "3":
-                let indice=parseInt(prompt("ingresa el numero de el libro que quieres borrar"))
+                let indice=parseInt(prompt("Ingresa el numero de el libro que quieres borrar del 0 al 20"))
                 libreria.splice(indice, 1)
-                console.log("borrado con exito");
+                console.log("Borrado con exito");
                 break;
                 
         case "4":
-                let decision2= prompt("Que listado quieres ver \n1.Editorial\n2.peso\n3.precio\n4.estado\n5.ubicacion\n6.paginas\n7.dimensiones\n8.descripcion\n9.isbn\n10.formato\n11.fecha")
+                let decision2= prompt("Que listado quieres ver \n1.Editorial\n2.Peso\n3.Precio\n4.Estado\n5.Ubicacion\n6.Paginas\n7.Dimensiones\n8.Descripcion\n9. ISBN\n10.Formato")
                 if (decision2 ===1 || decision2 === "1"){
                     console.table(mostrar_libro1)
                 }
@@ -557,6 +579,14 @@ while (continuar === "si") {
                     console.table(mostrar_libro10)
                 }
                 break;
+
+                case "5":
+                    let decision3= prompt("Que quiere ver \n1. Ver descuento\n2. ver Titulo, Autor, Editorial, Precio y descuento")
+                    if (decision3 === 1 || decision3 == "1") {
+                        console.table(agregar);
+                    }if (decision3 === 2 || decision3 == "2") {
+                        console.table(listar);
+                    }
                 default:
                 break;
             }
