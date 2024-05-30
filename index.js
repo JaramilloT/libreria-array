@@ -535,9 +535,8 @@ let listar_Descuento = libreria.map((libro) =>{
 
  //titulo, autor, editorial, paginas
  let numeros_Paginas = libreria.filter((libro) => {
-    return libro.Paginas -300
- })
- .map((libro) =>{
+    return libro.Paginas >300
+ }).map((libro) =>{
     return{
         Titulo: libro.Titulo,
         Autor: libro.Autor,
