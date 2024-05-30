@@ -512,6 +512,7 @@ let listar = libreria.map((libro) =>{
 
 
 
+
  //filter
  let precios_libro = libreria.filter((libro) => {
     return libro.Precio >30000
@@ -534,10 +535,24 @@ let listar = libreria.map((libro) =>{
 
 
 
+
+
+
+ //Ordenar los libros por numero de paginas de mayor a meno
+
+let orden_Paginas = libreria.sort((a,b)=> b.Paginas - a.Paginas)
+    .map((libro) => {
+        return{
+        Titulo: libro.Titulo,
+        Paginas: libro.Paginas 
+    }
+});//console.table(orden_Paginas)
+
+
 //menu
 let continuar= "si"
 while (continuar === "si") {
-    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros \n6. resumenes de este segmento");
+    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros \n6. Filtro de precio y paginas \n7. Orden numero de paginas");
     switch (menu) {
         case "1":
             let decision= prompt("Deseas ver los demas datos")
@@ -623,11 +638,17 @@ while (continuar === "si") {
                 break;
 
                 case "6":
-                    let decision_4 =prompt("que quiere ver \n1. Libors con precio mayor a 30.000 pesos \n2. Libro con numero de paginas superior a 300")
+                    let decision_4 =prompt("Que quiere ver \n1. Libors con precio mayor a 30.000 pesos \n2. Libro con numero de paginas superior a 300")
                     if (decision_4 === 1 || decision_4 === "1"){
                         console.table(precios_libro);
                     }else if(decision_4 === 2 || decision_4 === "2"){
                         console.table(numeros_Paginas);
+                    }
+                break;
+                case "7":
+                    let decision_5 =prompt("1. numero de pagina de mayor a menor")
+                    if (decision_5 === 1 || decision_5 === "1"){
+                        console.table(orden_Paginas);
                     }
                 default:
                 break;
