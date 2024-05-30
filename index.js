@@ -470,7 +470,7 @@ let libro_nuevo= {
 
  
  //spreed operator
- let agregar = libreria.map((libros) =>{
+ let agregar_Descuento = libreria.map((libros) =>{
     return{
         ...libros,
         descuento: 20,
@@ -481,7 +481,7 @@ let libro_nuevo= {
 
 
 //Listar los libros por Titulo, Autor, Editorial, Precio y descuento.
-let listar = libreria.map((libro) =>{
+let listar_Descuento = libreria.map((libro) =>{
     return{
         ...libro,
         descuento: 20
@@ -517,7 +517,7 @@ let listar = libreria.map((libro) =>{
  let precios_libro = libreria.filter((libro) => {
     return libro.Precio >30000
  });
- console.log(precios_libro);
+ //console.log(precios_libro);
 
  //titulo, autor, editorial, paginas
  let numeros_Paginas = libreria.filter((libro) => {
@@ -608,7 +608,7 @@ let resumen_Paginas= libreria.sort((a,b)=> b.Paginas - a.Paginas)
 //menu
 let continuar= "si"
 while (continuar === "si") {
-    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros \n6. Filtro de precio y paginas \n7. Orden numero de paginas \n8. Cadena");
+    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de 10 libros \n5. Libros descuentos \n6. Filtro de precio y paginas \n7. Orden numero de paginas \n8. Cadena");
     switch (menu) {
         case "1":
             let decision= prompt("Deseas ver los demas datos")
@@ -624,31 +624,31 @@ while (continuar === "si") {
             break;
         case "2":
             let nuevo_libro = {
-                titulo: prompt("titulo"),
-                autor: prompt("autor"),
-                genero: prompt("genero"),
-                idioma: prompt("idioma"),
-                formato: prompt("formato"),
-                isbn: prompt("isbn"),
-                descripcion: prompt("descripcion"),
-                estado: prompt("estado"),
-                ubicacion: prompt("ubicacion"),
-                fecha_publicacion: prompt("fecha de bublicacion  "),
-                editorial: prompt("editorial"),
-                paginas:prompt("paginas"),
-                dimensiones: prompt("dimensiones"),
-                peso: prompt("peso")
+                Titulo: prompt("titulo"),
+                Autor: prompt("autor"),
+                Genero: prompt("genero"),
+                Idioma: prompt("idioma"),
+                Formato: prompt("formato"),
+                ISBN: prompt("isbn"),
+                Descripcion: prompt("descripcion"),
+                Estado: prompt("estado"),
+                Ubicacion: prompt("ubicacion"),
+                Fecha_publicacion: prompt("fecha de bublicacion  "),
+                Editorial: prompt("editorial"),
+                Paginas:prompt("paginas"),
+                Dimensiones: prompt("dimensiones"),
+                Peso: prompt("peso")
             }
                 libreria.push(nuevo_libro)
-                console.log("Agregado con exito");
+                console.log("Se a agregado el libro");
                 libreria.forEach((libro,index) =>{
                 console.log(`${index} Titulo : ${libro.Titulo}`);
             })
             break;
         case "3":
-                let indice=parseInt(prompt("Ingresa el numero de el libro que quieres borrar del 0 al 20"))
-                libreria.splice(indice, 1)
-                console.log("Borrado con exito");
+                libreria.pop()
+                console.log("El libro se borro");
+                console.table(libreria);
                 break;
                 
         case "4":
@@ -687,14 +687,14 @@ while (continuar === "si") {
                 case "5":
                     let decision_3= prompt("Que quiere ver \n1. Ver descuento\n2. ver Titulo, Autor, Editorial, Precio y descuento")
                     if (decision_3 === 1 || decision_3 == "1") {
-                        console.table(agregar);
+                        console.table(agregar_Descuento);
                     }else if (decision_3 === 2 || decision_3 == "2") {
-                        console.table(listar);
+                        console.table(listar_Descuento);
                     }
                 break;
 
                 case "6":
-                    let decision_4 =prompt("Que quiere ver \n1. Libors con precio mayor a 30.000 pesos \n2. Libro con numero de paginas superior a 300")
+                    let decision_4 =prompt("Que quiere ver \n1. Libors con precio mayor a 30.000 pesos \n2. Libro con numero de paginas superior a °300")
                     if (decision_4 === 1 || decision_4 === "1"){
                         console.table(precios_libro);
                     }else if(decision_4 === 2 || decision_4 === "2"){
@@ -702,10 +702,11 @@ while (continuar === "si") {
                     }
                 break;
                 case "7":
-                    let decision_5 =prompt("1. numero de pagina de mayor a menor")
+                    let decision_5 =prompt("1. Numero de pagina de mayor a menor")
                     if (decision_5 === 1 || decision_5 === "1"){
                         console.table(orden_Paginas);
                     }
+                break;
                 case "8":
                     let decision_6 =prompt("1. Libros con precio mayor a 300 \n2. Resumen libros \n3. Libros con precio mayor a 400 \n4. Numero de paginas de mayor a menor" )
                     if (decision_6 === 1 || decision_6 === "1"){
