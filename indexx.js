@@ -393,38 +393,6 @@ let libro_nuevo= {
  );*/
 
 
- //spreed operator
- let agregar = libreria.map((libros) =>{
-    return{
-        ...libros,
-        descuento: 20,
-    }
-   }
- );
-
-
-
-//Listar los libros por Titulo, Autor, Editorial, Precio y descuento.
-
-
-let listar = libreria.map((libros) =>{
-    return{
-        ...libros,
-        descuento: 20
-    }
-   }
- )
-. map((libro) =>{
-    return{
-        Titulo: libro.Titulo,
-        Autor: libro.Autor,
-        Editorial: libro.Editorial,
-        Precio: libro.Precio,
-        descuento: libro.descuento
-    }
-   }
- );
-
 
 
 //10 libros para mostrar
@@ -500,6 +468,49 @@ let listar = libreria.map((libros) =>{
    }
  );
 
+ 
+ //spreed operator
+ let agregar = libreria.map((libros) =>{
+    return{
+        ...libros,
+        descuento: 20,
+    }
+   }
+ );
+
+
+
+//Listar los libros por Titulo, Autor, Editorial, Precio y descuento.
+let listar = libreria.map((libro) =>{
+    return{
+        ...libro,
+        descuento: 20
+    }
+   }
+ )
+. map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Editorial: libro.Editorial,
+        Precio: libro.Precio,
+        descuento: libro.descuento
+    }
+   }
+ );
+
+
+
+ //Ordenar los libros por numero de paginas de mayor a menor
+ let ordenar_Paginas = libreria.sort((a,b)=> b.Paginas - a.Paginas)
+    .map((libro)=>{
+        return{
+            Titulo: libro.Titulo,
+            Paginas: libro.Paginas
+        }
+});//console.table(ordenar_Paginas)
+
+
 
  //filter
  let precios_libro = libreria.filter((libro) => {
@@ -508,14 +519,25 @@ let listar = libreria.map((libros) =>{
  console.log(precios_libro);
 
  //titulo, autor, editorial, paginas
- let Numero_paginas = libreria.sort((libro, libro2) => libro2.Paginas - libro.Paginas );
- console.table(Numero_paginas);
+ let numeros_Paginas = libreria.filter((libro) => {
+    return libro.Paginas >300
+ })
+ .map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Editorial: libro.Editorial,
+        Paginas: libro.Paginas
+    }
+   }
+ );//console.table(numeros_Paginas)
+
 
 
 //menu
 let continuar= "si"
 while (continuar === "si") {
-    let menu= prompt("Que quiere hacer \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros");
+    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros \n6. resumenes de este segmento");
     switch (menu) {
         case "1":
             let decision= prompt("Deseas ver los demas datos")
@@ -530,7 +552,7 @@ while (continuar === "si") {
             }
             break;
         case "2":
-            let nuevo = {
+            let nuevo_libro = {
                 titulo: prompt("titulo"),
                 autor: prompt("autor"),
                 genero: prompt("genero"),
@@ -546,7 +568,7 @@ while (continuar === "si") {
                 dimensiones: prompt("dimensiones"),
                 peso: prompt("peso")
             }
-                libreria.push(nuevo)
+                libreria.push(nuevo_libro)
                 console.log("Agregado con exito");
                 libreria.forEach((libro,index) =>{
                 console.log(`${index} Titulo : ${libro.Titulo}`);
@@ -559,44 +581,53 @@ while (continuar === "si") {
                 break;
                 
         case "4":
-                let decision2= prompt("Que listado quieres ver \n1.Editorial\n2.Peso\n3.Precio\n4.Estado\n5.Ubicacion\n6.Paginas\n7.Dimensiones\n8.Descripcion\n9. ISBN\n10.Formato")
-                if (decision2 ===1 || decision2 === "1"){
+                let decision_2= prompt("Que listado quieres ver \n1.Editorial\n2.Peso\n3.Precio\n4.Estado\n5.Ubicacion\n6.Paginas\n7.Dimensiones\n8.Descripcion\n9. ISBN\n10.Formato")
+                if (decision_2 ===1 || decision_2 === "1"){
                     console.table(mostrar_libro1)
                 }
-                if (decision2 ===2 || decision2 === "2"){
+                if (decision_2 ===2 || decision_2 === "2"){
                     console.table(mostrar_libro2)
                 }
-                if (decision2 ===3 || decision2 === "3"){
+                if (decision_2 ===3 || decision_2 === "3"){
                 console.table(mostrar_libro3)
-                }if (decision2 ===4 || decision2 === "4"){
+                }if (decision_2 ===4 || decision_2 === "4"){
                     console.table(mostrar_libro4)
                 }
-                if (decision2 ===5 || decision2 === "5"){
+                if (decision_2 ===5 || decision_2 === "5"){
                     console.table(mostrar_libro5)
                 }
-                if (decision2 ===6 || decision2 === "6"){
+                if (decision_2 ===6 || decision_2 === "6"){
                     console.table(mostrar_libro6)
                 }
-                if (decision2 ===7 || decision2 === "7"){
+                if (decision_2 ===7 || decision_2 === "7"){
                     console.table(mostrar_libro7)
                 }
-                if (decision2 ===8 || decision2 === "8"){
+                if (decision_2 ===8 || decision_2 === "8"){
                     console.table(mostrar_libro8)
                 }
-                if (decision2 ===9 ||  decision2 === "9"){
+                if (decision_2 ===9 ||  decision_2 === "9"){
                     console.table(mostrar_libro9)
                 }
-                if (decision2 ===10 || decision2 === "10"){
+                if (decision_2 ===10 || decision_2 === "10"){
                     console.table(mostrar_libro10)
                 }
                 break;
 
                 case "5":
-                    let decision3= prompt("Que quiere ver \n1. Ver descuento\n2. ver Titulo, Autor, Editorial, Precio y descuento")
-                    if (decision3 === 1 || decision3 == "1") {
+                    let decision_3= prompt("Que quiere ver \n1. Ver descuento\n2. ver Titulo, Autor, Editorial, Precio y descuento")
+                    if (decision_3 === 1 || decision_3 == "1") {
                         console.table(agregar);
-                    }if (decision3 === 2 || decision3 == "2") {
+                    }else if (decision_3 === 2 || decision_3 == "2") {
                         console.table(listar);
+                    }
+                break;
+
+                case "6":
+                    let decision_4 =prompt("que quiere ver \n1. Libors con precio mayor a 30.000 pesos \n2. Libro con numero de paginas superior a 300")
+                    if (decision_4 === 1 || decision_4 === "1"){
+                        console.table(precios_libro);
+                    }else if(decision_4 === 2 || decision_4 === "2"){
+                        console.table(numeros_Paginas);
                     }
                 default:
                 break;
