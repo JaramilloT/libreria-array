@@ -488,7 +488,7 @@ let listar_Descuento = libreria.map((libro) =>{
     }
    }
  )
-. map((libro) =>{
+.map((libro) =>{
     return{
         Titulo: libro.Titulo,
         Autor: libro.Autor,
@@ -498,6 +498,20 @@ let listar_Descuento = libreria.map((libro) =>{
     }
    }
  );
+
+
+
+ let listar_precio = libreria.map((libro) =>{
+    return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Editorial: libro.Editorial,
+        Precio: libro.Precio,
+        descuento: libro.descuento
+    }
+   }
+ );
+
 
 
 
@@ -607,7 +621,7 @@ let resumen_Paginas= libreria.sort((a,b)=> b.Paginas - a.Paginas)
 
 //menu
 let continuar= "si"
-while (continuar === "si") {
+while (continuar === "si"){
     let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de 10 libros \n5. Libros descuentos \n6. Filtro de precio y paginas \n7. Orden numero de paginas \n8. Cadena");
     switch (menu) {
         case "1":
@@ -685,11 +699,13 @@ while (continuar === "si") {
                 break;
 
                 case "5":
-                    let decision_3= prompt("Que quiere ver \n1. Ver descuento\n2. ver Titulo, Autor, Editorial, Precio y descuento")
+                    let decision_3= prompt("Que quiere ver \n1. Ver descuento\n2. ver Titulo, Autor, Editorial, Precio y descuento \n3. ver Titulo, Autor, Editorial, Precio")
                     if (decision_3 === 1 || decision_3 == "1") {
                         console.table(agregar_Descuento);
                     }else if (decision_3 === 2 || decision_3 == "2") {
                         console.table(listar_Descuento);
+                    }else if (decision_3 === 3 || decision_3 == "3") {
+                        console.table(listar_precio );
                     }
                 break;
 
