@@ -579,7 +579,7 @@ let Libros_Caros = libreria.filter((libro) => {
 //Realiza un resumen de libros que tengan menos de 100 paginas resumirlos por titulo, autor, editorial y paginas.
 
 let resumen_libro = libreria.filter((libro) => {
-    return libro.Paginas -100
+    return libro.Paginas <100
   }).map((libro) => {
         return{
         Titulo: libro.Titulo,
