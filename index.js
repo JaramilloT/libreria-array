@@ -549,10 +549,66 @@ let orden_Paginas = libreria.sort((a,b)=> b.Paginas - a.Paginas)
 });//console.table(orden_Paginas)
 
 
+
+//Obtener un array de libros caros por titulo mayores de 11 dolares, resumirlos por titulo, autor, precio. 
+
+let Libros_Caros = libreria.filter((libro) => {
+    return libro.Precio > 30000
+  }).map((libro) => {
+        return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Precio: libro.Precio
+    }
+});
+
+
+//Realiza un resumen de libros que tengan menos de 100 paginas resumirlos por titulo, autor, editorial y paginas.
+
+let resumen_libro = libreria.filter((libro) => {
+    return libro.Paginas -100
+  }).map((libro) => {
+        return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Editorial: libro.Editorial,
+        Paginas: libro.Paginas
+    }
+});
+
+
+
+//Realizar un resumen de libros caros mayores a 20 dolares de mayor a menor resumirlos por titulo, autor, precio.
+
+let Libros_Caros2 = libreria.filter((libro) => {
+    return libro.Precio > 40000
+  }).map((libro) => {
+        return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Precio: libro.Precio
+    }
+});
+
+
+
+
+//Realizar un resumen de libros por numero mas alto de paginas resumirlos por titulo, autor, editorial, paginas ordenados de mayor a menor.
+
+let resumen_Paginas= libreria.sort((a,b)=> b.Paginas - a.Paginas)
+    .map((libro) => {
+        return{
+        Titulo: libro.Titulo,
+        Autor: libro.Autor,
+        Editorial: libro.Editorial,
+        Paginas: libro.Paginas 
+    }
+});
+
 //menu
 let continuar= "si"
 while (continuar === "si") {
-    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros \n6. Filtro de precio y paginas \n7. Orden numero de paginas");
+    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de libros \n5. Listar libros \n6. Filtro de precio y paginas \n7. Orden numero de paginas \n8. Cadena");
     switch (menu) {
         case "1":
             let decision= prompt("Deseas ver los demas datos")
@@ -650,13 +706,22 @@ while (continuar === "si") {
                     if (decision_5 === 1 || decision_5 === "1"){
                         console.table(orden_Paginas);
                     }
+                case "8":
+                    let decision_6 =prompt("1. Libros con precio mayor a 300 \n2. Resumen libros \n3. Libros con precio mayor a 400 \n4. Numero de paginas de mayor a menor" )
+                    if (decision_6 === 1 || decision_6 === "1"){
+                        console.table(Libros_Caros);
+                    }else if (decision_6 === 2 || decision_6 === "2"){
+                        console.table(resumen_libro);
+                    }else if (decision_6 === 3 || decision_6 === "3"){
+                        console.table(Libros_Caros2);
+                    }else if (decision_6 === 4 || decision_6 === "4"){
+                        console.table(resumen_Paginas);
+                    }
+                break;
+
                 default:
                 break;
             }
-         continuar= prompt("Deseas continuar")
-        }
+    continuar= prompt("Deseas regresar atras? si/no")
+}
     
-    
-   
-    
-
