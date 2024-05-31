@@ -57,7 +57,7 @@ let libreria = [
         Idioma: "Inglés",
         Precio: 56000,
         Formato: "Tapa Dura",
-        ISBN: "978-0141040349",
+        ISBN: "978-0141040349 Orgullo",
         Descripcion: "Una clásica novela de amor y malentendidos.",
         Estado: "Nuevo",
         Ubicacion: "Estantería D4",
@@ -147,7 +147,7 @@ let libreria = [
         Descripcion: "Un retrato inquietante de la burocracia y la culpabilidad.",
         Estado: "Nuevo",
         Ubicacion: "Estantería I9",
-        Fecha_publicacion: "1925",
+        Fecha_publicacion: " 1925",
         Editorial: " Angosta Editores",
         Paginas: "304",
         Dimensiones: "13.3 x 1.9 x 20.3 cm",
@@ -618,10 +618,95 @@ let resumen_Paginas= libreria.sort((a,b)=> b.Paginas - a.Paginas)
     }
 });
 
+
+//1. Buscar un objeto del array por titulo.
+let algunlibro = libreria.find((libro) => {
+    return libro.Titulo === "El Señor de los Anillos";
+  });//console.table(algunlibro)
+ 
+//2. Buscar un objeto del array por autor.
+let algunlibro_2 = libreria.find((libro) => {
+    return libro.Autor === "Gabriel García Márquez";
+  });//console.table(algunlibro_2)
+//3. Buscar un objeto del array por fecha de publicación.
+let algunlibro_3 = libreria.find((libro) => {
+    return libro.Fecha_publicacion === "1605";
+  });//console.table(algunlibro_3)
+//4. Buscar un objeto del array por genero.
+let algunlibro_4 = libreria.find((libro) => {
+    return libro.Genero=== "Distopía";
+  });////console.table(algunlibro_4)
+//5. Buscar un objeto del array por idioma.
+let algunlibro_5 = libreria.find((libro) => {
+    return libro.Idioma === "Inglés";
+  });//console.table(algunlibro_5)
+
+
+
+
+
+
+//6. Crear 10 iteraciones diferentes de búsqueda de libros en el sistema.
+
+let algunlibro_6 = libreria.find((libro) => {
+    return libro.Titulo === "Don Quijote de la Mancha",
+           libro.Precio === 36000;
+  });//console.table(algunlibro)
+ 
+
+let algunlibro_7 = libreria.find((libro) => {
+    return libro.Titulo === "George Orwell",
+           libro.Formato ===  " Tapa Blanda";
+  });//console.table(algunlibro_2)
+
+let algunlibro_8 = libreria.find((libro) => {
+    return libro.Titulo === "Orgullo y Prejuicio",
+           libro.ISBN === "978-0141040349 ";
+  });//console.table(algunlibro_3)
+
+let algunlibro_9 = libreria.find((libro) => {
+
+    return  libro.Titulo === "El Gran Gatsby",
+            libro.Genero=== "Tragedia ";
+  });//console.table(algunlibro_4)
+
+let algunlibro_10 = libreria.find((libro) => {
+    return  libro.Titulo === "Matar a un Ruiseñor ",
+            libro.Descripcion === "Una novela sobre la injusticia racial en el sur de los Estados Unidos.";
+  });//console.table(algunlibro_5)
+  
+let algunlibro_11 = libreria.find((libro) => {
+    return  libro.Titulo === "Crimen y Castigo",
+            libro.Estado=== "Nuevo ";
+  });//console.table(algunlibro)
+ 
+let algunlibro_12 = libreria.find((libro) => {
+    return  libro.Titulo === "Ulises",
+            libro.Ubicacion=== " Estantería H8 ";
+  });
+//   console.table(algunlibro_2)
+
+let algunlibro_13 = libreria.find((libro) => {
+    return  libro.Titulo === "El Proceso",
+            libro.Fecha_publicacion === " 1925 ";
+  });//console.table(algunlibro_3)
+
+let algunlibro_14 = libreria.find((libro) => {
+    return  libro.Titulo === "El Proceso",
+            libro.Editorial=== " Angosta Editores ";
+  });//console.table(algunlibro_4)
+
+let algunlibro_15 = libreria.find((libro) => {
+    return  libro.Titulo === "Drácula",
+            libro.Paginas=== "488 ";
+  });//console.table(algunlibro_5)
+
+
+
 //menu
 let continuar= "si"
 while (continuar === "si"){
-    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de 10 libros \n5. Libros descuentos \n6. Filtro de precio y paginas \n7. Orden numero de paginas \n8. Cadena");
+    let menu= prompt("Que quiere ver \n1. Ver libros disponibles\n2. Agregar nuevo libro\n3. Borrar un libro \n4. Lista de 10 libros \n5. Libros descuentos \n6. Filtro de precio y paginas \n7. Orden numero de paginas \n8. Cadena \n9. Buscar objeto por array \n 10 interacciones");
     switch (menu) {
         case "1":
             let decision= prompt("Deseas ver los demas datos")
@@ -734,8 +819,47 @@ while (continuar === "si"){
                         console.table(resumen_Paginas);
                     }
                 break;
+                case "9":
+                    let decision_7 = prompt("1. Buscar un objeto del array por titulo. \n2. Buscar un objeto del array por autor. \n3. Buscar un objeto del array por fecha de publicación. \n4. Buscar un objeto del array por genero. \n5. Buscar un objeto del array por idioma.")
+                    if       (decision_7 === 1 || decision_6 === "1"){
+                        console.table(algunlibro);
+                    }else if (decision_7 === 2 || decision_7=== "2"){
+                        console.table(algunlibro_2);
+                    }else if (decision_7 === 3 || decision_7 === "3"){
+                        console.table(algunlibro_3);
+                    }else if (decision_7 === 4 || decision_7 === "4"){
+                        //console.table(algunlibro_4);
+                    }else if (decision_7 === 5 || decision_7 === "5"){
+                        console.table(algunlibro_5);
+                    }
+                break;
 
-                default:
+                case "10":
+                    let decision_8 = prompt("1. precio \n2. formato \n3. ISBN \n4. Genero \n5. Descripccion \n8. Estado \n9. Ubicacion \n10. Fecha publicacion \n11. Paginas");
+                    
+                    if  (decision_8 === 6 || decision_8 === "6"){
+                        console.table(algunlibro_6);
+                    }else if (decision_8 === 7 || decision_8 === "7"){
+                        console.table(algunlibro_7);
+                    }else if (decision_8 === 8 || decision_8 === "8"){
+                        console.table(algunlibro_8);
+                    }else if (decision_8 === 9 || decision_8 === "9"){
+                        console.table(algunlibro_9);
+                    }else if (decision_8 === 10 || decision_8 === "10"){
+                        console.table(algunlibro_10);
+                    }else if (decision_8 === 11 || decision_8 === "11"){
+                        console.table(algunlibro_11);
+                    }else if (decision_8 === 12 || decision_8 === "12"){
+                        console.table(algunlibro_12);
+                    }else if (decision_8 === 13 || decision_8 === "13"){
+                        console.table(algunlibro_13);
+                    }else if (decision_8 === 14 || decision_8 === "11"){
+                        console.table(algunlibro_14);
+                    }else if (decision_8 === 15 || decision_8 === "12"){
+                        console.table(algunlibro_15);
+                    }
+                break;
+                    default:
                 break;
             }
     continuar= prompt("Deseas regresar atras? si/no")
