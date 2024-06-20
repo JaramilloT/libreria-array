@@ -506,8 +506,7 @@ let listar_Descuento = libreria.map((libro) =>{
         Titulo: libro.Titulo,
         Autor: libro.Autor,
         Editorial: libro.Editorial,
-        Precio: libro.Precio,
-        descuento: libro.descuento
+        Precio: libro.Precio
     }
    }
  );
@@ -602,6 +601,8 @@ let Libros_Caros2 = libreria.filter((libro) => {
         Precio: libro.Precio
     }
 });
+
+
 
 
 
@@ -821,7 +822,7 @@ while (continuar === "si"){
                 break;
                 case "9":
                     let decision_7 = prompt("1. Buscar un objeto del array por titulo. \n2. Buscar un objeto del array por autor. \n3. Buscar un objeto del array por fecha de publicación. \n4. Buscar un objeto del array por genero. \n5. Buscar un objeto del array por idioma.")
-                    if       (decision_7 === 1 || decision_6 === "1"){
+                    if       (decision_7 === 1 || decision_7 === "1"){
                         console.table(algunlibro);
                     }else if (decision_7 === 2 || decision_7=== "2"){
                         console.table(algunlibro_2);
@@ -837,25 +838,25 @@ while (continuar === "si"){
                 case "10":
                     let decision_8 = prompt("1. precio \n2. formato \n3. ISBN \n4. Genero \n5. Descripccion \n8. Estado \n9. Ubicacion \n10. Fecha publicacion \n11. Paginas");
                     
-                    if  (decision_8 === 6 || decision_8 === "6"){
+                    if  (decision_8 === 1 || decision_8 === "1"){
                         console.table(algunlibro_6);
-                    }else if (decision_8 === 7 || decision_8 === "7"){
+                    }else if (decision_8 === 2 || decision_8 === "2"){
                         console.table(algunlibro_7);
-                    }else if (decision_8 === 8 || decision_8 === "8"){
+                    }else if (decision_8 === 3 || decision_8 === "3"){
                         console.table(algunlibro_8);
-                    }else if (decision_8 === 9 || decision_8 === "9"){
+                    }else if (decision_8 === 4 || decision_8 === "4"){
                         console.table(algunlibro_9);
-                    }else if (decision_8 === 10 || decision_8 === "10"){
+                    }else if (decision_8 === 5 || decision_8 === "5"){
                         console.table(algunlibro_10);
-                    }else if (decision_8 === 11 || decision_8 === "11"){
+                    }else if (decision_8 === 6 || decision_8 === "6"){
                         console.table(algunlibro_11);
-                    }else if (decision_8 === 12 || decision_8 === "12"){
+                    }else if (decision_8 === 7 || decision_8 === "7"){
                         console.table(algunlibro_12);
-                    }else if (decision_8 === 13 || decision_8 === "13"){
+                    }else if (decision_8 === 8 || decision_8 === "8"){
                         console.table(algunlibro_13);
-                    }else if (decision_8 === 14 || decision_8 === "11"){
+                    }else if (decision_8 === 9 || decision_8 === "9"){
                         console.table(algunlibro_14);
-                    }else if (decision_8 === 15 || decision_8 === "12"){
+                    }else if (decision_8 === 10 || decision_8 === "10"){
                         console.table(algunlibro_15);
                     }
                 break;
